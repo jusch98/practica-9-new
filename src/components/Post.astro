@@ -1,0 +1,35 @@
+---
+import { getPostData } from '../lib/firebase.js'; // Importa la función para obtener los posts
+import PostCard from "../components/PostCard.astro"; // Importamos PostCard
+import PostContent from './PostContent.astro';
+const posts = await getPostData(); // Fetch posts data
+---
+
+<!-- Main Content -->
+<div class="container mx-auto py-8 px-4 bg-stone-950 text-gray-100">
+  
+  <!-- Título de las publicaciones -->
+  <h1 class="text-4xl  text-center mb-8 text-gray-900 font-Akira ">
+    Nuestros Cursos
+  </h1>
+
+  <!-- Grid de publicaciones -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+
+    <!-- Condicional para mostrar las publicaciones -->
+    {posts.length > 0 ? (
+      posts.map((post) => (
+        <PostCard
+          key={post.id}
+          title={post.title}
+          description={post.description}
+          image={post.image}
+          slug={post.slug}
+        />
+      ))
+    ) : (
+      <p class="text-center text-xl text-gray-300">No hay publicaciones disponibles.</p>
+    )}
+  </div>
+  
+</div>
