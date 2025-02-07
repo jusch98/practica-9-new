@@ -22,9 +22,16 @@ export const posts = [...Array(6)].map((_, index) => {
 });
 
 const articles: any[] = [];
+const timestamp = 0
 
 export const getPosts = async () => {
-  if (articles.length) return articles;
+  const now = Date.now()
+  if (now - timestamp > 2000) {
+    articles.length = 0
+  }
+  if (articles.length) {
+    return articles;
+  }
   try {
     const dbRef = ref(db);
     const snapshot = await get(child(dbRef, 'posts/'));

@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import Post from "./Post.astro";
 const { title, description, image, price, level, videoUrl } = Astro.props;
 console.log("Video URL:", videoUrl);
 ---
@@ -12,22 +13,26 @@ console.log("Video URL:", videoUrl);
     <title>{title}</title>
     <style>
       body {
-        background-image: url('https://images.pexels.com/photos/669576/pexels-photo-669576.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+        background-image: url("https://images.pexels.com/photos/669576/pexels-photo-669576.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
         background-size: cover; /* La imagen cubre toda el área del body */
         background-position: center; /* Centra la imagen */
         background-attachment: fixed; /* La imagen no se mueve al hacer scroll */
-        
-        
       }
     </style>
   </head>
 
   <body class="bg-white">
     <div class="max-w-7xl mx-auto py-12 px-6">
-      <article class="bg-white shadow-xl rounded-lg overflow-hidden max-w-3xl mx-auto">
+      <article
+        class="bg-white shadow-xl rounded-lg overflow-hidden max-w-3xl mx-auto"
+      >
         <header class="text-center px-6 py-8">
           <h1 class="text-4xl font-Akira text-slate-900">{title}</h1>
-          <img src={image} alt={title} class="mt-6 h-72 w-full object-cover rounded-lg shadow-md" />
+          <img
+            src={image}
+            alt={title}
+            class="mt-6 h-72 w-full object-cover rounded-lg shadow-md"
+          />
           <p class="mt-6 text-lg text-gray-600">{description}</p>
 
           <!-- Detalles como Precio y Nivel -->
@@ -38,21 +43,36 @@ console.log("Video URL:", videoUrl);
             >
               Precio: {price} $
             </button>
-            <p class="text-xl text-white font-Akira bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 px-6 py-3 rounded-md font-medium shadow-xl">
+            <p
+              class="text-xl text-white font-Akira bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 px-6 py-3 rounded-md font-medium shadow-xl"
+            >
               Nivel: {level}
             </p>
           </div>
         </header>
 
         <!-- Modal para Confirmar la Compra -->
-        <div id="confirmationModal" class="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50 hidden">
-          <div class="bg-white p-8 rounded-lg shadow-lg text-center max-w-sm w-full">
-            <h2 class="text-2xl font-bold text-gray-700 mb-4">¿Quieres comprar este curso?</h2>
+        <div
+          id="confirmationModal"
+          class="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50 hidden"
+        >
+          <div
+            class="bg-white p-8 rounded-lg shadow-lg text-center max-w-sm w-full"
+          >
+            <h2 class="text-2xl font-bold text-gray-700 mb-4">
+              ¿Quieres comprar este curso?
+            </h2>
             <div class="flex justify-around">
-              <button id="confirmButton" class="bg-green-500 text-white px-6 py-2 rounded-lg shadow-md">
+              <button
+                id="confirmButton"
+                class="bg-green-500 text-white px-6 py-2 rounded-lg shadow-md"
+              >
                 Sí
               </button>
-              <button id="cancelButton" class="bg-red-500 text-white px-6 py-2 rounded-lg shadow-md">
+              <button
+                id="cancelButton"
+                class="bg-red-500 text-white px-6 py-2 rounded-lg shadow-md"
+              >
                 No
               </button>
             </div>
@@ -62,10 +82,16 @@ console.log("Video URL:", videoUrl);
         <!-- Contenedor del Video -->
         <div id="videoContainer" class="mt-8 hidden text-center">
           <h3 class="text-xl font-Akira text-gray-800">Curso Comprado</h3>
-          <video controls class="mt-4 mb-8 w-full max-w-2xl mx-auto rounded-lg shadow-md">
-            <source src={videoUrl || 'fallback-video.mp4'} type="video/mp4" />
-            Tu navegador no soporta la etiqueta de video o el video no está disponible.
-          </video>
+          <iframe
+            width="561"
+            height="315"
+            src={videoUrl}
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen></iframe>
+           
         </div>
       </article>
     </div>
@@ -93,7 +119,8 @@ console.log("Video URL:", videoUrl);
 
         if (confirmButton) confirmButton.addEventListener("click", showVideo);
         if (cancelButton) cancelButton.addEventListener("click", closeModal);
-        if (priceButton) priceButton.addEventListener("click", showConfirmation);
+        if (priceButton)
+          priceButton.addEventListener("click", showConfirmation);
       });
     </script>
   </body>
