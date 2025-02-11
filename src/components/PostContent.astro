@@ -80,8 +80,13 @@ console.log("Video URL:", videoUrl);
         </div>
 
         <!-- Contenedor del Video -->
-        <div id="videoContainer" class="mt-8 hidden text-center">
-          <h3 class="text-xl font-Akira text-gray-800">Curso Comprado</h3>
+       
+        <div
+          id="videoContainer"
+          class="mt-8 hidden flex flex-col justify-center items-center text-center mb-10"
+        >
+          <h3 class="text-xl font-Akira text-gray-800 mb-4">Curso Comprado</h3>
+          <!-- Añadí un margen abajo al título -->
           <iframe
             width="561"
             height="315"
@@ -91,7 +96,6 @@ console.log("Video URL:", videoUrl);
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             referrerpolicy="strict-origin-when-cross-origin"
             allowfullscreen></iframe>
-           
         </div>
       </article>
     </div>
