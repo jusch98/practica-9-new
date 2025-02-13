@@ -58,7 +58,7 @@ const Suscripcion = () => {
     <div className="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50 z-50 backdrop-blur-sm">
       <div className="bg-white p-6 rounded-lg shadow-lg max-w-sm w-full relative z-50">
         <h2 className="text-xl font-bold mb-4 text-center">Iniciar sesión o Registrarse</h2>
-        {error && <p className="text-red-500 mb-2 text-center">{error}</p>}
+        {error && <p className="text-red-500 font-bold mb-2 text-center">{error}</p>}
 
         <input
           type="text"
@@ -78,13 +78,13 @@ const Suscripcion = () => {
 
         <div className="flex justify-between">
           <button
-            className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded w-1/2 mr-2"
+            className="bg-teal-500 hover:bg-teal-600 text-white font-Akira px-4 py-2 rounded w-1/2 mr-2"
             onClick={registrarUsuario}
           >
             Registrarse
           </button>
           <button
-            className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded w-1/2"
+            className="bg-sky-500 hover:bg-sky-600 text-white font-Akira px-4 py-2 rounded w-1/2"
             onClick={iniciarSesion}
           >
             Iniciar sesión
