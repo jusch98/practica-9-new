@@ -78,13 +78,13 @@ const Suscripcion = () => {
 
         <div className="flex justify-between">
           <button
-            className="bg-teal-500 hover:bg-teal-600 text-white font-Akira px-4 py-2 rounded w-1/2 mr-2"
+            className="bg-teal-500 hover:bg-teal-600 text-white px-4 py-2 rounded w-1/2 mr-2"
             onClick={registrarUsuario}
           >
             Registrarse
           </button>
           <button
-            className="bg-sky-500 hover:bg-sky-600 text-white font-Akira px-4 py-2 rounded w-1/2"
+            className="bg-sky-500 hover:bg-sky-600 text-white px-4 py-2 rounded w-1/2"
             onClick={iniciarSesion}
           >
             Iniciar sesión
