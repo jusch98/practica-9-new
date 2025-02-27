@@ -4,7 +4,11 @@
       "id": 0,
       "title": "BodyBuilder",
       "description": "Adéntrate en el mundo del fisicoculturismo, un deporte donde la fuerza, la disciplina y la técnica se combinan para desarrollar músculo y mejorar la estética corporal. Aprende sobre entrenamiento, nutrición y motivación para alcanzar tus objetivos como fisicoculturista.",
-      "price":170.00,
+      "price": {
+        "USD": 130.00,
+        "EUR": 120.00,
+        "GBP": 110.00
+      },
       "level":"Intermedio",
       "videoUrl": "https://www.youtube.com/embed/MstkUlsKYvU?si=bUW22pk07UaKHIoU",
       "image": "https://wallpapers.com/images/hd/chris-bumstead-using-cable-gym-equipment-jkjohnuujtjhsdc9.jpg",
@@ -14,7 +18,11 @@
       "id": 1,
       "title": "Pilates",
       "description": "Descubre el Pilates, una disciplina que combina control mental, respiración y ejercicios físicos para mejorar la fuerza, la flexibilidad y la postura. Aprende cómo practicar Pilates para transformar tu cuerpo y mente.",
-      "price":130.00,
+      "price": {
+        "USD": 130.00,
+        "EUR": 120.00,
+        "GBP": 110.00
+      },
       "level":"Intermedio",
       "videoUrl": "https://www.youtube.com/embed/C2HX2pNbUCM?si=_OYbcqeqitKVSWAz",
       "image": "https://images.pexels.com/photos/868757/pexels-photo-868757.jpeg?auto=compress&cs=tinysrgb&w=600",
@@ -24,7 +32,11 @@
       "id": 2,
       "title": "Powerlifting",
       "description": "El powerlifting es un deporte enfocado en tres grandes levantamientos: sentadilla, press de banca y peso muerto. Explora cómo mejorar tu fuerza máxima en cada uno de estos movimientos y alcanzar tus metas en powerlifting.",
-      "price":200.00,
+      "price": {
+        "USD": 130.00,
+        "EUR": 120.00,
+        "GBP": 110.00
+      },
       "level":"Intermedio",
       "videoUrl": "https://www.youtube.com/watch?v=Wqm8XVklCs4&ab_channel=Gorrino",
       "image": "https://media.istockphoto.com/id/1149241542/es/foto/joven-ejercit%C3%A1ndose-usando-cuerda-de-batalla.jpg?b=1&s=612x612&w=0&k=20&c=f0_iuVjH1pseQLiUcht9_gARctESF-E3BLWJWSf1QsM=",
@@ -34,7 +46,11 @@
       "id": 3,
       "title": "Boxeo",
       "description": "El boxeo es un deporte de alta resistencia y estrategia. Aprende sobre las técnicas de entrenamiento físico y mental que los boxeadores utilizan para prepararse para la competencia y cómo este deporte mejora la agilidad y la resistencia.",
-      "price":450.00,
+      "price": {
+        "USD": 130.00,
+        "EUR": 120.00,
+        "GBP": 110.00
+      },
       "level":"Intermedio",
       "videoUrl": "https://www.youtube.com/watch?v=Wqm8XVklCs4&ab_channel=Gorrino",
       "image": "https://images.pexels.com/photos/4761598/pexels-photo-4761598.jpeg?auto=compress&cs=tinysrgb&w=600",
@@ -44,7 +60,11 @@
       "id": 4,
       "title": "TRX",
       "description": "El entrenamiento TRX es una modalidad de ejercicios en suspensión que mejora la fuerza, la flexibilidad y el equilibrio. Conoce cómo esta técnica de entrenamiento basada en el uso del peso corporal puede transformar tu rendimiento físico.",
-      "price":150.00,
+         "price": {
+        "USD": 130.00,
+        "EUR": 120.00,
+        "GBP": 110.00
+      },
       "level":"Intermedio",
       "videoUrl": "https://www.youtube.com/watch?v=Wqm8XVklCs4&ab_channel=Gorrino",
       "image": "https://media.istockphoto.com/id/1162483677/es/foto/entrenamiento-trx-joven-mujer-atl%C3%A9tica-en-las-piernas-de-entrenamiento-de-ropa-deportiva-con.jpg?b=1&s=612x612&w=0&k=20&c=OUx93kxkU-55ycaguo1xonYgNH9aWpwOT8VJn2yFsmw=",
@@ -54,7 +74,11 @@
       "id": 5,
       "title": "Funcional",
       "description": "El entrenamiento funcional se enfoca en movimientos naturales del cuerpo para mejorar la fuerza, la resistencia y la coordinación. Aprende cómo este tipo de entrenamiento puede mejorar tu rendimiento en actividades diarias y deportivas.",
-      "price":150.00,
+         "price": {
+        "USD": 130.00,
+        "EUR": 120.00,
+        "GBP": 110.00
+      },
       "level":"Intermedio",
       "videoUrl": "https://www.youtube.com/watch?v=Wqm8XVklCs4&ab_channel=Gorrino",
       "image": "https://media.istockphoto.com/id/1294578173/es/foto/grupo-de-j%C3%B3venes-que-se-entrenan-en-sala-de-cross-fit.jpg?s=612x612&w=0&k=20&c=FLkC13YRDdSgVbRfnTeWI0DDWTGPJmPUXvRfosaGth0=",
@@ -64,7 +88,11 @@
       "id": 6,
       "title": "Spinning",
       "description": "El spinning es un entrenamiento cardiovascular de alta intensidad que se realiza en bicicletas estáticas. Descubre los beneficios de este ejercicio para mejorar tu resistencia y quemar calorías mientras disfrutas de la música.",
-      "price":100.00,
+         "price": {
+       "USD": 130.00,
+        "EUR": 120.00,
+        "GBP": 110.00
+      },
       "level":"Intermedio",
       "videoUrl": "https://www.youtube.com/watch?v=Wqm8XVklCs4&ab_channel=Gorrino",
       "image": "https://cloudfront-us-east-1.images.arcpublishing.com/lanacionpy/WICMVIKPVRDQLERAL3UTJXTYOY.jpg",
@@ -74,7 +102,11 @@
       "id": 7,
       "title": "Nutricion",
       "description": "La nutrición es clave para alcanzar un buen rendimiento físico y mantener un cuerpo saludable. Aprende sobre los alimentos que favorecen el crecimiento muscular, la energía y la recuperación para mejorar tus entrenamientos y tu bienestar general.",
-      "price":300.00,
+      "price": {
+        "USD": 130.00,
+        "EUR": 120.00,
+        "GBP": 110.00
+      },
       "level":"Intermedio",
       "videoUrl": "https://www.youtube.com/watch?v=Wqm8XVklCs4&ab_channel=Gorrino",
       "image": "https://ignaciafillolnutricion.com/wp-content/uploads/2024/07/nutricion-salud-y-bienestar.jpg",

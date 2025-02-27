@@ -3,6 +3,7 @@ import "../styles/global.css";
 import Post from "./Post.astro";
 const { title, description, image, price, level, videoUrl } = Astro.props;
 console.log("Video URL:", videoUrl);
+console.log("Prices:", price);
 ---
 
 <!doctype html>
@@ -41,9 +42,10 @@ console.log("Video URL:", videoUrl);
             <div class="flex justify-center gap-8">
               <button
                 id="priceButton"
+                data-prices={JSON.stringify(price)}
                 class="text-xl text-white font-Akira bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 px-6 py-3 rounded-md font-medium shadow-xl transform hover:scale-105 transition-transform duration-300 ease-in-out"
               >
-                Precio: {price} $
+                Precio: {price.USD} $
               </button>
               <p
                 class="text-xl text-white font-Akira bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 px-6 py-3 rounded-md font-medium shadow-xl"
@@ -54,8 +56,15 @@ console.log("Video URL:", videoUrl);
 
             <!-- Botón de cambiar moneda centrado -->
             <div class="mt-4 flex flex-col items-center">
-              <label for="monedaSelector" class="text-lg text-slate-900 font-Akira ">Selecciona Moneda:</label>
-              <select id="monedaSelector" class="mt-2 p-2   text-slate-800 font-bold border rounded-md">
+              <label
+                for="monedaSelector"
+                class="text-lg text-slate-900 font-Akira"
+                >Selecciona Moneda:</label
+              >
+              <select
+                id="monedaSelector"
+                class="mt-2 p-2 text-slate-800 font-bold border rounded-md"
+              >
                 <option value="$">Dólares ($)</option>
                 <option value="€">Euros (€)</option>
                 <option value="£">Libras (£)</option>
@@ -115,57 +124,42 @@ console.log("Video URL:", videoUrl);
       </article>
       <script>
         document.addEventListener("DOMContentLoaded", function () {
-          const modal = document.getElementById("confirmationModal");
-          const videoContainer = document.getElementById("videoContainer");
-          const confirmButton = document.getElementById("confirmButton");
-          const cancelButton = document.getElementById("cancelButton");
-          const priceButton = document.getElementById("priceButton");
-
-          function showConfirmation() {
-            if (modal) modal.classList.remove("hidden");
-          }
-
-          function closeModal() {
-            if (modal) modal.classList.add("hidden");
-          }
-
-          function showVideo() {
-            if (modal) modal.classList.add("hidden"); // Cerrar el modal
-            if (videoContainer) videoContainer.classList.remove("hidden"); // Mostrar el video
-          }
-
-          if (confirmButton) confirmButton.addEventListener("click", showVideo);
-          if (cancelButton) cancelButton.addEventListener("click", closeModal);
-          if (priceButton)
-            priceButton.addEventListener("click", showConfirmation);
-        });
-      </script>
-      <script>
-        document.addEventListener("DOMContentLoaded", function () {
           const priceButton = document.getElementById("priceButton");
           const monedaSelector = document.getElementById("monedaSelector");
-      
-          // Validar que los elementos existen antes de continuar
+
+          // Validar que los elementos existen
           if (!priceButton || !monedaSelector) return;
-      
+
           // Casting para corregir el error de TypeScript ('value' no existe en HTMLElement)
-          const monedaSelectorElement = monedaSelector as HTMLSelectElement;
-          const priceButtonElement = priceButton as HTMLButtonElement;
-      
+          const monedaSelectorElement = monedaSelector;
+          const priceButtonElement = priceButton;
+
+          // Recuperar el objeto de precios desde el atributo data-prices
+          const prices = JSON.parse(
+            priceButtonElement.getAttribute("data-prices"),
+          );
+
+          // Obtener la moneda guardada en localStorage o establecer como predeterminada "$"
           let monedaGuardada = localStorage.getItem("moneda") || "$";
-      
-          function actualizarMoneda(moneda: string) {
-            let texto = priceButtonElement.textContent || "";
-            let precioNumerico = texto.match(/\d+/g);
-      
-            if (precioNumerico) {
-              priceButtonElement.textContent = `Precio: ${precioNumerico[0]} ${moneda}`;
+
+          function actualizarMoneda(moneda) {
+            let valor;
+            // Seleccionar el valor numérico según la moneda
+            if (moneda === "$") {
+              valor = prices.USD;
+            } else if (moneda === "€") {
+              valor = prices.EUR;
+            } else if (moneda === "£") {
+              valor = prices.GBP;
             }
+
+            // Actualizar el contenido del botón
+            priceButtonElement.textContent = `Precio: ${valor} ${moneda}`;
           }
-      
+
           monedaSelectorElement.value = monedaGuardada;
           actualizarMoneda(monedaGuardada);
-      
+
           monedaSelectorElement.addEventListener("change", function () {
             let nuevaMoneda = monedaSelectorElement.value;
             localStorage.setItem("moneda", nuevaMoneda);
@@ -173,7 +167,39 @@ console.log("Video URL:", videoUrl);
           });
         });
       </script>
-      
+      <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          const priceButton = document.getElementById("priceButton");
+          const monedaSelector = document.getElementById("monedaSelector");
+
+          // Validar que los elementos existen antes de continuar
+          if (!priceButton || !monedaSelector) return;
+
+          // Casting para corregir el error de TypeScript ('value' no existe en HTMLElement)
+          const monedaSelectorElement = monedaSelector as HTMLSelectElement;
+          const priceButtonElement = priceButton as HTMLButtonElement;
+
+          let monedaGuardada = localStorage.getItem("moneda") || "$";
+
+          function actualizarMoneda(moneda: string) {
+            let texto = priceButtonElement.textContent || "";
+            let precioNumerico = texto.match(/\d+/g);
+
+            if (precioNumerico) {
+              priceButtonElement.textContent = `Precio: ${precioNumerico[0]} ${moneda}`;
+            }
+          }
+
+          monedaSelectorElement.value = monedaGuardada;
+          actualizarMoneda(monedaGuardada);
+
+          monedaSelectorElement.addEventListener("change", function () {
+            let nuevaMoneda = monedaSelectorElement.value;
+            localStorage.setItem("moneda", nuevaMoneda);
+            actualizarMoneda(nuevaMoneda);
+          });
+        });
+      </script>
     </div>
   </body>
 </html>

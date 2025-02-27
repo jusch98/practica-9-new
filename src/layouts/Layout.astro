@@ -1,5 +1,4 @@
 ---
-// layout.astro
 import Header from "../components/Header.astro";
 import Video from "../components/Video.astro";
 import Titulo from "../components/Titulo.astro";
@@ -14,19 +13,20 @@ import '../styles/global.css';
   <head>
     <meta charset="UTF-8" />
     <title>Plataforma de Venta de Cursos</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"> <!-- Para animar el título -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"> 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
   </head>
   <body class="bg-white">
-    
-  
     <Header />
     <Video />
     <Titulo />
     <Slider client:load />
+    
     <main class="container mx-auto px-4 flex-1">
+      <slot />
       <Post />
     </main>
+
     <Footer />
   </body>
 </html>
